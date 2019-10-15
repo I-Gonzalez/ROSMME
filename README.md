@@ -5,7 +5,7 @@ Setting up an in-house cluster
 The ISO image will be downloaded in the folder `/distro/iso/`, which is already created. We are going to use CentOS 7.5 in our cluster. The ISO image was downloaded from the mirror in the UPB:
 ```
 $> cd /distro/iso
-$> cd wget http://mirror.upb.edu.co/centos/7.5.1804/isos/x86_64/CentOS-7-x86_64
+$>  wget http://mirror.upb.edu.co/centos/7.5.1804/isos/x86_64/CentOS-7-x86_64
 ```
 Create a folder where the repository is going to be located:
 ```
@@ -34,9 +34,9 @@ Thus, when `$> ls /distro/CentOS-7.5-x86_64/` is excecuted, the installation fil
 ### The  etc directory
 
 
-### etc / exports
-In Linux system with NFS you can specify in which computers the content is shared. The list of resources that the server computer will share is located in / etc / exports Therefore The **/ etc /** exports file controls which file systems are exported to remote hosts (host or host computers or other connected devices), the Export file specifies options such as which devices it is possible to connect to for an assigned IP range and privileges or options that these hosts have
-The options for each of the hosts must be placed in parentheses directly after the host identifier, without spaces separating the host and the first parenthesis, for our case the hosts are a function of a range of IP addresses  `/ distro `,  is a folder that contains the server which is being shared for the host range assigned inside the parentheses are the permissions for the computers of the network in this case we have applied
+### etc/exports
+In Linux system with NFS you can specify in which computers the content is shared. The list of resources that the server computer will share is located in /etc/exports Therefore The **/etc/** exports file controls which file systems are exported to remote hosts (host or host computers or other connected devices), the Export file specifies options such as which devices it is possible to connect to for an assigned IP range and privileges or options that these hosts have
+The options for each of the hosts must be placed in parentheses directly after the host identifier, without spaces separating the host and the first parenthesis, for our case the hosts are a function of a range of IP addresses  `/distro `,  is a folder that contains the server which is being shared for the host range assigned inside the parentheses are the permissions for the computers of the network in this case we have applied
 
 `/ distro 10.10.0.0/16(ro,root_squash,mp,crossmnt)`
 ```
@@ -53,8 +53,8 @@ The options for each of the hosts must be placed in parentheses directly after t
 ```
 
 
-### / etc / hosts
-This file is used to obtain a relation between a machine name and an IP address: on each line of `/ etc /` hosts an IP address and the corresponding machine names are specified, so that a user does not have to remember addresses but host names. Usually they include the addresses, names and aliases of all the equipment connected to the local network. The purpose of assigning names to IP numbers is to make them easy for people to remember. Actually, an IP address identifies a network interface associated with a device such as a network card. Since each computer can have several network cards and several interfaces on each card, a single computer can have several names in the domain name system. Each team is identified The format of a line in this file can be
+### /etc/hosts
+This file is used to obtain a relation between a machine name and an IP address: on each line of `/etc/` hosts an IP address and the corresponding machine names are specified, so that a user does not have to remember addresses but host names. Usually they include the addresses, names and aliases of all the equipment connected to the local network. The purpose of assigning names to IP numbers is to make them easy for people to remember. Actually, an IP address identifies a network interface associated with a device such as a network card. Since each computer can have several network cards and several interfaces on each card, a single computer can have several names in the domain name system. Each team is identified The format of a line in this file can be
 ```
 
 #*** SP Management ***
@@ -77,26 +77,26 @@ This file is used to obtain a relation between a machine name and an IP address:
 ```
 ### The sysconfig directory
 
-This directory contains files that control the configuration of your system. The contents of this section highlight some of the files found in the directory `/ etc / sysconfig /`, its function, and its contents. This information is not intended to be exhaustive, as many of these files have a variety of options that are only used in very specific circumstances, so the content of this directory depends on the packages you have installed on your system.
+This directory contains files that control the configuration of your system. The contents of this section highlight some of the files found in the directory `/etc/sysconfig/`, its function, and its contents. This information is not intended to be exhaustive, as many of these files have a variety of options that are only used in very specific circumstances, so the content of this directory depends on the packages you have installed on your system.
 
-**/ etc / sysconfig / nfs**
+**/etc/sysconfig/nfs**
 
 Controls which ports use remote procedure call **(RPC)**  services for NFS v2 and v3. This file allows you to configure firewall rules for **NFS**
 
-**/ etc / sysconfig / dhcpd**
+**/etc/sysconfig/dhcpd**
 It contains the arguments of the dhcpd daemon **"Dynamic Host Configuration Protocol (DHCP)"** and the **"Internet Bootstrap Protocol (BOOTP)"**. **DHCP** and **BOOTP** assign names of servers to machines on the network.
 
-**/ etc / sysconfig / xinetd**
+**/etc/sysconfig/xinetd**
 It passes arguments to xinetd at the moment of startup which initiates programs for internet services when a requirement appears at the port of that service.
 
-**/ etc / sysconfig / ntpd**
+**/etc/sysconfig/ntpd**
 
-The `/ etc / sysconfig / ntpd`  is used to pass arguments to the ntpd daemon at boot time. The ntpd daemon configures and maintains the system clock to synchronize with a standard Internet time server. It implements version 4 of the Network Time Protocol (NTP).
+The `/etc/sysconfig/ntpd`  is used to pass arguments to the ntpd daemon at boot time. The ntpd daemon configures and maintains the system clock to synchronize with a standard Internet time server. It implements version 4 of the Network Time Protocol (NTP).
 
-**/ etc / sysconfig / ntpd**
-The `/ etc / sysconfig / ntpd`  is used to pass arguments to the ntpd daemon at boot time. The ntpd daemon configures and maintains the system clock to synchronize with a standard Internet time server. It implements version 4 of the Network Time Protocol (NTP).
+**/etc/sysconfig/ntpd**
+The `/etc/sysconfig/ntpd`  is used to pass arguments to the ntpd daemon at boot time. The ntpd daemon configures and maintains the system clock to synchronize with a standard Internet time server. It implements version 4 of the Network Time Protocol (NTP).
 
-**/ etc / sysconfig /networking /**
+**/etc/sysconfig/networking/**
 This directory is used by the Network Administration Tool (system-config-network), and its content should not be edited manually. For more information about configuring network interfaces with the Network Administration Tool,
 network-scripts /
 This directory contains the following configuration files related to the network:
